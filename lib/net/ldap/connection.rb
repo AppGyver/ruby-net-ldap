@@ -22,7 +22,7 @@ class Net::LDAP::Connection #:nodoc:
     @instrumentation_service = server[:instrumentation_service]
 
     # Allows tests to parameterize what socket class to use
-    @socket_class = server.fetch(:socket_class, DefaultSocket)
+    @socket_class = server.fetch(:socket_class, DefaultSocket) || DefaultSocket
 
     yield self if block_given?
   end
